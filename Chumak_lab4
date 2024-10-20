@@ -1,0 +1,43 @@
+#include <iostream>
+#include <string>
+#include <windows.h>
+
+using namespace std;
+
+int main()
+{
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
+   
+    int arr[] = { 1,2,4,5,6,4,5,8,9,0,3,46 };
+
+    const int size = sizeof(arr) / sizeof(arr[0]);
+
+    int uniqueArr[12];
+    int uniquecount = 0;
+
+    for(int i = 0; i < size; i++) 
+    {
+        bool isDublicate = false;
+        for (int j = 0; j < uniquecount; j++)
+        {
+            if (arr[i] == uniqueArr[j])
+            {
+                isDublicate = true;
+                break;
+            }
+        }
+            if(!isDublicate)
+            {
+                uniqueArr[uniquecount] = arr[i];
+                uniquecount++;
+            }
+    }
+    cout << "Уникальные значения: ";
+    
+    for (int i = 0; i < uniquecount; i++)
+    {
+        cout << uniqueArr[i] << "; ";
+    }
+    return 0;
+}
